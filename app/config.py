@@ -73,7 +73,7 @@ class Settings(BaseSettings):
     authorization_servers: str = ""
 
     # --- CORS ---
-    cors_allowed_origins: str = "http://localhost:3000"
+    cors_allowed_origins: str = "http://localhost:3000","http://localhost:6274"
 
     # --- Security headers ---
     enable_hsts: bool = False

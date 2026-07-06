@@ -9,9 +9,10 @@ Authentication for MCP requests is deliberately isolated here rather
 than in generic FastAPI middleware — see app.mcp.authentication.
 """
 
-from app.mcp.server import build_mcp_server, build_streamable_http_app
+from app.mcp.server import mcp_server, session_manager, mcp_asgi_app
 
 __all__ = [
-    "build_mcp_server",
-    "build_streamable_http_app",
+    "mcp_server",
+    "session_manager",
+    "mcp_asgi_app",
 ]

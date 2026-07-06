@@ -81,9 +81,15 @@ class MCPAuthenticationMiddleware:
         if scope["type"] != "http":
             await self.app(scope, receive, send)
             return
+        
+        for k, v in scope.get("headers", []):
+            print(k.decode(), ":", v.decode())
+
+        print("========================\n")
 
         try:
             token = _extract_bearer_token(scope)
+            print("VERIFY CALLED")
             principal = await self.token_verifier.verify(token)
         except AuthenticationError as exc:
             audit_log(

@@ -83,11 +83,13 @@ def build_mcp_server() -> Server:
     return server
 
 
-def build_streamable_http_app() -> Any:
-    """
-    Returns an ASGI app for the MCP Streamable HTTP transport, mounted
-    (with authentication applied in front of it) by app/main.py.
-    """
-    server = build_mcp_server()
-    session_manager = StreamableHTTPSessionManager(app=server)
-    return StreamableHTTPASGIApp(session_manager)
+from mcp.server.streamable_http_manager import StreamableHTTPSessionManager
+from mcp.server.fastmcp.server import StreamableHTTPASGIApp
+
+mcp_server = build_mcp_server()
+
+session_manager = StreamableHTTPSessionManager(
+    app=mcp_server
+)
+
+mcp_asgi_app = StreamableHTTPASGIApp(session_manager)
