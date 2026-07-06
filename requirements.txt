@@ -1,0 +1,38 @@
+# =========================================================
+# Secure MCP Server - Production Dependencies
+# Python 3.12+
+# =========================================================
+
+# --- MCP SDK ---
+mcp==1.28.1
+
+# --- Web Framework ---
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+starlette==0.41.3
+
+# --- Configuration ---
+pydantic==2.11.0
+pydantic-settings==2.7.1
+
+# --- Authentication / JWT / OAuth2 ---
+PyJWT==2.10.1
+cryptography==44.0.0
+httpx==0.28.1
+authlib==1.4.0
+
+# --- Structured Logging ---
+structlog==24.4.0
+
+# --- ASGI / Middleware utilities ---
+python-multipart==0.0.20
+asgiref==3.8.1
+
+# --- Testing ---
+pytest==8.3.4
+pytest-asyncio==0.25.2
+pytest-cov==6.0.0
+respx==0.22.0
+
+# --- Dev tooling (optional but included for reproducibility) ---
+python-dotenv==1.0.1
